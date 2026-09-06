@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation - CarAdvia</title>
+</head>
+
+<body>
+
+  <h1>Suppression du compte CarAdvia</h1>
+
+  <p id="message">
+    Vérification de votre demande...
+  </p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    const message = document.getElementById("message");
+
+    if (!token) {
+      message.textContent =
+        "Lien de confirmation invalide ou incomplet.";
+    } else {
+      message.textContent =
+        "Votre demande est en cours de vérification...";
+    }
+  </script>
+
+</body>
+</html>
