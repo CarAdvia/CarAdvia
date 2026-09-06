@@ -1,47 +1,208 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Suppression du compte - CarAdvia</title>
+  <title>Suppression du compte - CarAdvia</title>
 
-<style> body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; } h1, h2 { color: #111; } .box { background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 20px 0; } a { color: #2563eb; } </style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
 
+    h1, h2 {
+      color: #111;
+    }
+
+    .box {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #message {
+      margin-top: 20px;
+    }
+
+    a {
+      color: #2563eb;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Suppression du compte CarAdvia</h1>
+  <h1>Suppression du compte CarAdvia</h1>
 
-<p> Cette page permet aux utilisateurs de CarAdvia de demander la suppression de leur compte et des données associées. </p>
+  <p>
+    Cette page permet aux utilisateurs de demander la suppression
+    de leur compte et des données associées.
+  </p>
 
-<h2>Comment supprimer votre compte</h2>
+  <div class="box">
 
-<div class="box"> <p> Si vous utilisez CarAdvia, vous pouvez supprimer votre compte directement depuis l'application : </p>
+    <h2>Demander la suppression</h2>
 
-<p>
-  <strong>Paramètres → Supprimer mon compte</strong>
-</p>
+    <p>
+      Entrez l'adresse e-mail associée à votre compte CarAdvia.
+      Un e-mail de confirmation vous sera envoyé.
+    </p>
 
-</div>
+    <form id="deletionForm">
 
-<h2>Demande de suppression via le Web</h2>
+      <label for="email">
+        Adresse e-mail
+      </label>
 
-<p> Si vous ne pouvez pas accéder à l'application, vous pouvez demander la suppression de votre compte en contactant CarAdvia à l'adresse e-mail utilisée pour le service. </p>
+      <input
+        id="email"
+        type="email"
+        placeholder="votre@email.com"
+        required
+      >
 
-<p> Lors de votre demande, indiquez l'adresse e-mail associée à votre compte CarAdvia afin que nous puissions identifier le compte concerné. </p>
+      <button id="submitButton" type="submit">
+        Envoyer la demande
+      </button>
 
-<h2>Données supprimées</h2>
+    </form>
 
-<p> Lorsqu'un compte est supprimé, les données associées au compte sont supprimées conformément au fonctionnement de CarAdvia. </p>
+    <p id="message"></p>
 
-<p>Cela comprend notamment :</p>
+  </div>
 
-<ul> <li>Le compte utilisateur</li> <li>Les informations du profil</li> <li>Les véhicules enregistrés</li> <li>Les dépenses</li> <li>Les données de carburant</li> <li>Les réparations</li> <li>Les rappels d'entretien</li> <li>Les informations de partage associées au compte</li> </ul>
+  <h2>Suppression depuis l'application</h2>
 
-<h2>Suppression définitive</h2>
+  <p>
+    Vous pouvez également supprimer votre compte directement
+    depuis l'application CarAdvia :
+  </p>
 
-<p> La suppression du compte est définitive. Une fois la suppression effectuée, le compte et les données associées ne peuvent pas être récupérés. </p>
+  <p>
+    <strong>Paramètres → Supprimer mon compte</strong>
+  </p>
 
-<h2>Retour à CarAdvia</h2>
+  <h2>Données supprimées</h2>
 
-<p> <a href="index.html">Retour à la page d'accueil de CarAdvia</a> </p>
+  <ul>
+    <li>Le compte utilisateur</li>
+    <li>Les informations du profil</li>
+    <li>Les véhicules enregistrés</li>
+    <li>Les dépenses</li>
+    <li>Les données de carburant</li>
+    <li>Les réparations</li>
+    <li>Les rappels d'entretien</li>
+    <li>Les informations de partage associées au compte</li>
+  </ul>
 
-</body> </html>
+  <h2>Suppression définitive</h2>
+
+  <p>
+    La suppression du compte est définitive et les données
+    associées ne peuvent pas être récupérées après suppression.
+  </p>
+
+  <p>
+    <a href="index.html">
+      Retour à CarAdvia
+    </a>
+  </p>
+
+  <script>
+    const SUPABASE_FUNCTION_URL =
+      "https://TON-PROJET.supabase.co/functions/v1/request-account-deletion";
+
+    const form =
+      document.getElementById("deletionForm");
+
+    const email =
+      document.getElementById("email");
+
+    const button =
+      document.getElementById("submitButton");
+
+    const message =
+      document.getElementById("message");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      button.disabled = true;
+      button.textContent = "Envoi...";
+
+      message.textContent = "";
+
+      try {
+        const response = await fetch(
+          SUPABASE_FUNCTION_URL,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              email: email.value
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(
+            data.error ||
+            "Une erreur est survenue."
+          );
+        }
+
+        message.textContent =
+          "Si un compte existe pour cette adresse, un e-mail de confirmation a été envoyé.";
+
+        form.reset();
+
+      } catch (error) {
+        console.error(error);
+
+        message.textContent =
+          "Impossible d'envoyer la demande. Veuillez réessayer.";
+      }
+
+      button.disabled = false;
+      button.textContent = "Envoyer la demande";
+    });
+  </script>
+
+</body>
+</html>
