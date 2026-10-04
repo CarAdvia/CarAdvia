@@ -1,72 +1,45 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Suppression du compte - CarAdvia</title>
+<html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-    }
+<title>Suppression du compte - CarAdvia</title>
 
-    h1, h2 {
-      color: #111;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .box {
-      background: #f5f5f5;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-    }
+<style> :root { --background: hsl(220, 20%, 97%); --foreground: hsl(220, 30%, 15%); --card: #ffffff; --primary: hsl(215, 50%, 23%); --secondary: hsl(40, 96%, 53%); --muted: hsl(220, 15%, 93%); --muted-foreground: hsl(220, 10%, 45%); --border: hsl(220, 15%, 88%); } * { box-sizing: border-box; } html { scroll-behavior: smooth; } body { margin: 0; font-family: 'Inter', sans-serif; background: var(--background); color: var(--foreground); line-height: 1.6; } header { background: var(--primary); border-bottom: 4px solid var(--secondary); padding: 18px 24px; } .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; } .brand { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; font-size: 21px; font-weight: 800; } .logo { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; } nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-end; } nav a { color: white; text-decoration: none; font-size: 14px; font-weight: 500; } nav a:hover { color: var(--secondary); } main { max-width: 900px; margin: 50px auto; padding: 0 20px; } .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 40px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); } h1 { margin-top: 0; margin-bottom: 12px; color: var(--primary); font-size: 32px; line-height: 1.2; } h2 { margin-top: 36px; margin-bottom: 12px; color: var(--primary); font-size: 22px; } h2::before { content: ""; display: inline-block; width: 5px; height: 22px; margin-right: 10px; vertical-align: -3px; background: var(--secondary); border-radius: 4px; } p { margin: 10px 0; } .intro { color: var(--muted-foreground); margin-bottom: 30px; } .box { background: var(--muted); border: 1px solid var(--border); border-radius: 14px; padding: 25px; margin: 30px 0; } .box h2 { margin-top: 0; } label { display: block; margin-bottom: 8px; font-weight: 600; } input { width: 100%; padding: 14px; margin: 8px 0 16px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 16px; background: white; color: var(--foreground); outline: none; } input:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15); } button { padding: 14px 22px; background: var(--secondary); color: var(--foreground); border: none; border-radius: 10px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 700; transition: transform 0.15s ease, opacity 0.15s ease; } button:hover:not(:disabled) { transform: translateY(-1px); } button:disabled { opacity: 0.6; cursor: not-allowed; } #message { margin-top: 18px; font-weight: 500; } ul { padding-left: 25px; } li { margin: 8px 0; } li::marker { color: var(--secondary); } .important { background: rgba(245, 166, 35, 0.12); border-left: 4px solid var(--secondary); border-radius: 8px; padding: 16px 18px; margin-top: 20px; } a { color: var(--primary); } .back { display: inline-block; margin-top: 30px; padding: 12px 18px; background: var(--primary); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; } .back:hover { opacity: 0.9; } footer { margin-top: 60px; padding: 30px 20px; background: var(--primary); border-top: 4px solid var(--secondary); color: white; text-align: center; } footer a { color: white; text-decoration: none; margin: 0 8px; } footer a:hover { color: var(--secondary); } .footer-brand { margin-bottom: 12px; font-weight: 700; } @media (max-width: 700px) { header { padding: 16px; } .header-inner { flex-direction: column; } nav { justify-content: center; } main { margin: 25px auto; padding: 0 14px; } .card { padding: 25px 20px; border-radius: 14px; } h1 { font-size: 27px; } h2 { font-size: 20px; } } @media (prefers-color-scheme: dark) { :root { --background: hsl(220, 25%, 8%); --foreground: hsl(220, 15%, 93%); --card: hsl(220, 25%, 12%); --primary: hsl(40, 96%, 53%); --secondary: hsl(215, 50%, 23%); --muted: hsl(220, 20%, 16%); --muted-foreground: hsl(220, 10%, 65%); --border: hsl(220, 20%, 20%); } header { background: hsl(220, 25%, 6%); border-bottom-color: hsl(40, 96%, 53%); } .brand, nav a { color: white; } nav a:hover { color: hsl(40, 96%, 53%); } h1, h2 { color: hsl(40, 96%, 53%); } button { color: hsl(220, 30%, 10%); background: hsl(40, 96%, 53%); } input { background: hsl(220, 25%, 10%); color: white; } a { color: hsl(40, 96%, 53%); } .back { background: hsl(40, 96%, 53%); color: hsl(220, 30%, 10%); } footer { background: hsl(220, 25%, 6%); border-top-color: hsl(40, 96%, 53%); } footer a { color: white; } } </style>
 
-    input {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 12px 20px;
-      background: #111827;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    #message {
-      margin-top: 20px;
-    }
-
-    a {
-      color: #2563eb;
-    }
-  </style>
 </head>
 
 <body>
 
+<header> <div class="header-inner">
+
+  <a href="index.html" class="brand">
+    <img
+      src="https://caradvia.com/src/assets/logo.png"
+      alt="CarAdvia"
+      class="logo"
+    >
+    <span>CarAdvia</span>
+  </a>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="privacy-policy.html">Confidentialité</a>
+    <a href="delete-account.html">Suppression du compte</a>
+  </nav>
+
+</div>
+
+</header>
+
+<main>
+
+<div class="card">
+
   <h1>Suppression du compte CarAdvia</h1>
 
-  <p>
+  <p class="intro">
     Cette page permet aux utilisateurs de demander la suppression
     de leur compte et des données associées.
   </p>
@@ -134,75 +107,33 @@
     associées ne peuvent pas être récupérées après suppression.
   </p>
 
-  <p>
-    <a href="index.html">
-      Retour à CarAdvia
-    </a>
-  </p>
+  <div class="important">
+    Une fois la suppression confirmée, les données associées
+    au compte sont définitivement supprimées.
+  </div>
 
-  <script>
-    const SUPABASE_FUNCTION_URL =
-      "https://tsedkhhqiwhgkuqiocrd.supabase.co/functions/v1/request-account-deletion";
+  <a href="index.html" class="back">
+    Retour à CarAdvia
+  </a>
 
-    const form =
-      document.getElementById("deletionForm");
+</div>
 
-    const email =
-      document.getElementById("email");
+</main>
 
-    const button =
-      document.getElementById("submitButton");
+<footer>
 
-    const message =
-      document.getElementById("message");
+<div class="footer-brand">
+  CarAdvia
+</div>
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+<div>
+  <a href="index.html">Accueil</a>
+  <a href="privacy-policy.html">Politique de confidentialité</a>
+  <a href="delete-account.html">Suppression du compte</a>
+</div>
 
-      button.disabled = true;
-      button.textContent = "Envoi...";
+</footer>
 
-      message.textContent = "";
+<script> const SUPABASE_FUNCTION_URL = "https://tsedkhhqiwhgkuqiocrd.supabase.co/functions/v1/request-account-deletion"; const form = document.getElementById("deletionForm"); const email = document.getElementById("email"); const button = document.getElementById("submitButton"); const message = document.getElementById("message"); form.addEventListener("submit", async (event) => { event.preventDefault(); button.disabled = true; button.textContent = "Envoi..."; message.textContent = ""; try { const response = await fetch( SUPABASE_FUNCTION_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email.value }) } ); const data = await response.json(); if (!response.ok || !data.success) { throw new Error( data.error || "Une erreur est survenue." ); } message.textContent = "Si un compte existe pour cette adresse, un e-mail de confirmation a été envoyé."; form.reset(); } catch (error) { console.error(error); message.textContent = "Impossible d'envoyer la demande. Veuillez réessayer."; } button.disabled = false; button.textContent = "Envoyer la demande"; }); </script>
 
-      try {
-        const response = await fetch(
-          SUPABASE_FUNCTION_URL,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              email: email.value
-            })
-          }
-        );
-
-        const data = await response.json();
-
-        if (!response.ok || !data.success) {
-          throw new Error(
-            data.error ||
-            "Une erreur est survenue."
-          );
-        }
-
-        message.textContent =
-          "Si un compte existe pour cette adresse, un e-mail de confirmation a été envoyé.";
-
-        form.reset();
-
-      } catch (error) {
-        console.error(error);
-
-        message.textContent =
-          "Impossible d'envoyer la demande. Veuillez réessayer.";
-      }
-
-      button.disabled = false;
-      button.textContent = "Envoyer la demande";
-    });
-  </script>
-
-</body>
-</html>
+</body> </html>
