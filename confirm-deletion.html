@@ -1,117 +1,73 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suppression du compte - CarAdvia</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-      text-align: center;
-    }
+<html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .box {
-      background: #f5f5f5;
-      border-radius: 12px;
-      padding: 30px;
-    }
+<title>Suppression du compte - CarAdvia</title>
 
-    .loading {
-      font-size: 18px;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .success {
-      color: #15803d;
-      font-size: 20px;
-    }
+<style> :root { --background: hsl(220, 20%, 97%); --foreground: hsl(220, 30%, 15%); --card: #ffffff; --primary: hsl(215, 50%, 23%); --secondary: hsl(40, 96%, 53%); --muted-foreground: hsl(220, 10%, 45%); --border: hsl(220, 15%, 88%); --success: #15803d; --error: #b91c1c; } * { box-sizing: border-box; } body { margin: 0; min-height: 100vh; font-family: 'Inter', sans-serif; background: var(--background); color: var(--foreground); line-height: 1.6; display: flex; flex-direction: column; } header { background: var(--primary); border-bottom: 4px solid var(--secondary); padding: 22px 24px; } .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; } .brand { color: white; text-decoration: none; font-size: 22px; font-weight: 800; } nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-end; } nav a { color: white; text-decoration: none; font-size: 14px; font-weight: 500; } nav a:hover { color: var(--secondary); } main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 50px 20px; } .container { width: 100%; max-width: 650px; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 45px 35px; text-align: center; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); } .icon { width: 76px; height: 76px; margin: 0 auto 25px; border-radius: 50%; background: var(--secondary); color: var(--foreground); display: flex; align-items: center; justify-content: center; font-size: 38px; font-weight: 700; } h1 { margin: 0 0 18px; color: var(--primary); font-size: 30px; line-height: 1.2; } p { line-height: 1.6; margin: 10px 0; } #message { margin-top: 15px; } .loading { color: var(--muted-foreground); font-size: 18px; } .success { color: var(--success); font-size: 20px; font-weight: 600; } .error { color: var(--error); font-size: 18px; font-weight: 600; } .links { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 14px; } .links a { color: var(--primary); text-decoration: none; margin: 0 8px; font-weight: 600; } .links a:hover { text-decoration: underline; } .back { display: inline-block; margin-top: 25px; padding: 12px 20px; background: var(--secondary); color: var(--foreground); border-radius: 10px; text-decoration: none; font-weight: 700; } footer { padding: 25px 20px; background: var(--primary); border-top: 4px solid var(--secondary); color: white; text-align: center; } footer a { color: white; text-decoration: none; margin: 0 8px; font-size: 14px; } footer a:hover { color: var(--secondary); } @media (max-width: 700px) { header { padding: 18px 16px; } .header-inner { flex-direction: column; } nav { justify-content: center; text-align: center; } main { padding: 25px 14px; } .container { padding: 32px 20px; border-radius: 14px; } h1 { font-size: 27px; } .links a { display: block; margin: 10px 0; } } @media (prefers-color-scheme: dark) { :root { --background: hsl(220, 25%, 8%); --foreground: hsl(220, 15%, 93%); --card: hsl(220, 25%, 12%); --primary: hsl(40, 96%, 53%); --secondary: hsl(215, 50%, 23%); --muted-foreground: hsl(220, 10%, 65%); --border: hsl(220, 20%, 20%); } header { background: hsl(220, 25%, 6%); border-bottom-color: hsl(40, 96%, 53%); } .brand, nav a { color: white; } nav a:hover { color: hsl(40, 96%, 53%); } h1 { color: hsl(40, 96%, 53%); } .icon { background: hsl(40, 96%, 53%); color: hsl(220, 30%, 10%); } .links a { color: hsl(40, 96%, 53%); } .back { background: hsl(40, 96%, 53%); color: hsl(220, 30%, 10%); } footer { background: hsl(220, 25%, 6%); border-top-color: hsl(40, 96%, 53%); } } </style>
 
-    .error {
-      color: #b91c1c;
-      font-size: 18px;
-    }
-
-    a {
-      color: #2563eb;
-    }
-  </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h1>CarAdvia</h1>
+<header> <div class="header-inner">
 
-    <p id="message" class="loading">
-      Vérification de votre demande...
-    </p>
+  <a href="index.html" class="brand">
+    CarAdvia
+  </a>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="privacy-policy.html">Confidentialité</a>
+    <a href="delete-account.html">Suppression du compte</a>
+  </nav>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="container">
+
+  <div class="icon">✓</div>
+
+  <h1>Suppression du compte</h1>
+
+  <p id="message" class="loading">
+    Vérification de votre demande...
+  </p>
+
+  <div class="links">
+
+    <a href="privacy-policy.html">
+      Politique de confidentialité
+    </a>
+
+    <a href="delete-account.html">
+      Suppression du compte
+    </a>
+
   </div>
 
-  <script>
-    const SUPABASE_FUNCTION_URL =
-      "https://tsedkhhqiwhgkuqiocrd.supabase.co/functions/v1/confirm-account-deletion";
+  <a href="index.html" class="back">
+    Retour à CarAdvia
+  </a>
 
-    async function confirmDeletion() {
-      const params = new URLSearchParams(
-        window.location.search
-      );
+</section>
 
-      const token = params.get("token");
+</main>
 
-      const message =
-        document.getElementById("message");
+<footer>
 
-      if (!token) {
-        message.className = "error";
-        message.textContent =
-          "Lien de confirmation invalide.";
-        return;
-      }
+<a href="index.html">Accueil</a>
+<a href="privacy-policy.html">Politique de confidentialité</a>
+<a href="delete-account.html">Suppression du compte</a>
 
-      try {
-        const response = await fetch(
-          SUPABASE_FUNCTION_URL,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              token: token
-            })
-          }
-        );
+</footer>
 
-        const data = await response.json();
+<script> const SUPABASE_FUNCTION_URL = "https://tsedkhhqiwhgkuqiocrd.supabase.co/functions/v1/confirm-account-deletion"; async function confirmDeletion() { const params = new URLSearchParams( window.location.search ); const token = params.get("token"); const message = document.getElementById("message"); if (!token) { message.className = "error"; message.textContent = "Lien de confirmation invalide."; return; } try { const response = await fetch( SUPABASE_FUNCTION_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token }) } ); const data = await response.json(); if (!response.ok || !data.success) { throw new Error( data.error || "Impossible de supprimer le compte." ); } message.className = "success"; message.textContent = "Votre compte CarAdvia a été supprimé définitivement."; } catch (error) { console.error(error); message.className = "error"; message.textContent = error.message || "Une erreur est survenue."; } } confirmDeletion(); </script>
 
-        if (!response.ok || !data.success) {
-          throw new Error(
-            data.error ||
-            "Impossible de supprimer le compte."
-          );
-        }
-
-        message.className = "success";
-        message.textContent =
-          "Votre compte CarAdvia a été supprimé définitivement.";
-
-      } catch (error) {
-        console.error(error);
-
-        message.className = "error";
-        message.textContent =
-          error.message ||
-          "Une erreur est survenue.";
-      }
-    }
-
-    confirmDeletion();
-  </script>
-
-</body>
-</html>
+</body> </html>
