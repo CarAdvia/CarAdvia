@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d3558">
+
+  <title>CarAdvia — Gestión y mantenimiento de tu coche</title>
+  <meta name="description" content="Organiza tus vehículos, gastos, combustible, reparaciones y recordatorios de mantenimiento con CarAdvia. Prueba nuestra calculadora gratuita de consumo.">
+  <link rel="canonical" href="https://caradvia.com/es/">
+
+  <link rel="alternate" hreflang="fr" href="https://caradvia.com/">
+  <link rel="alternate" hreflang="es" href="https://caradvia.com/es/">
+  <link rel="alternate" hreflang="en" href="https://caradvia.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://caradvia.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --text: #202b3c;
+      --navy: #1d3558;
+      --gold: #fbbd35;
+      --muted: #687487;
+      --border: #e0e5ec;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 36px)); margin: auto; }
+
+    header {
+      background: var(--navy);
+      color: white;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: white;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+    }
+
+    .brand span { color: var(--gold); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav { display: flex; flex-wrap: wrap; gap: 20px; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .language {
+      color: white;
+      background: #263f62;
+      border: 1px solid #64758d;
+      border-radius: 9px;
+      padding: 9px 10px;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .language option { color: #202b3c; background: white; }
+
+    .hero { padding: 76px 0 60px; }
+    .hero-inner { max-width: 780px; }
+
+    .eyebrow {
+      color: #916300;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 15px 0 20px;
+    }
+
+    .intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 750;
+      transition: transform .15s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-gold { background: var(--gold); color: var(--text); }
+    .button-navy { background: var(--navy); color: white; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 0 0 65px;
+    }
+
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 23px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: #fff3d1;
+      border-radius: 12px;
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .feature h2 {
+      color: var(--navy);
+      font-size: 17px;
+      margin: 0 0 7px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .tools {
+      border-top: 1px solid var(--border);
+      padding: 34px 0 50px;
+    }
+
+    .section-heading {
+      color: var(--navy);
+      font-size: 24px;
+      margin: 0 0 8px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .tool-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      text-decoration: none;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+
+    .tool-link:hover {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .tool-title {
+      color: var(--navy);
+      font-weight: 750;
+      margin-bottom: 3px;
+    }
+
+    .tool-description { color: var(--muted); font-size: 13px; }
+    .tool-arrow { color: #916300; font-size: 22px; flex-shrink: 0; }
+
+    footer {
+      background: var(--navy);
+      border-top: 4px solid var(--gold);
+      color: white;
+      padding: 27px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 760px) {
+      .nav { padding: 16px 0; flex-wrap: wrap; }
+      .nav-right { width: 100%; justify-content: space-between; gap: 12px; }
+      nav { gap: 13px; }
+      .hero { padding: 50px 0 40px; }
+      .features { grid-template-columns: 1fr; gap: 12px; margin-bottom: 45px; }
+      .footer-inner { flex-direction: column; }
+      footer a { margin: 0 12px 0 0; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101722;
+        --text: #edf1f7;
+        --muted: #b1bdcd;
+        --border: #2c394b;
+        --card: #182231;
+      }
+
+      .eyebrow { color: var(--gold); }
+      .feature h2, .section-heading, .tool-title { color: #f5c85e; }
+      .tool-link { background: var(--card); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/es/">Car<span>Advia</span></a>
+
+      <div class="nav-right">
+        <nav aria-label="Navegación principal">
+          <a href="/es/">Inicio</a>
+          <a href="#herramientas">Herramientas</a>
+          <a href="/privacy-policy.html">Privacidad</a>
+        </nav>
+
+        <label>
+          <span hidden>Idioma</span>
+          <select class="language" id="language" aria-label="Seleccionar idioma">
+            <option value="/">🇫🇷 Français</option>
+            <option value="/es/" selected>🇪🇸 Español</option>
+            <option value="/en/">🇬🇧 English</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-inner">
+        <div class="eyebrow">Tu coche, mejor organizado</div>
+        <h1>Controla tu vehículo y tus gastos con más facilidad.</h1>
+        <p class="intro">
+          CarAdvia te ayuda a organizar tus vehículos, controlar el combustible,
+          registrar reparaciones y gestionar recordatorios de mantenimiento.
+        </p>
+
+        <div class="actions">
+          <a class="button button-gold"
+             href="https://play.google.com/store/apps/details?id=com.CarAdvia.app">
+            Descubre CarAdvia
+          </a>
+          <a class="button button-navy" href="#herramientas">
+            Explorar herramientas gratuitas
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap features" aria-label="Funciones">
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">🚘</div>
+        <h2>Tus vehículos</h2>
+        <p>Consulta la información esencial de tus vehículos en un solo lugar.</p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">⛽</div>
+        <h2>Combustible y gastos</h2>
+        <p>Registra tus repostajes, el consumo y los gastos relacionados con tu coche.</p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">🔧</div>
+        <h2>Mantenimiento</h2>
+        <p>Organiza las reparaciones y los recordatorios para anticiparte al mantenimiento.</p>
+      </article>
+    </section>
+
+    <section class="tools" id="herramientas">
+      <div class="wrap">
+        <h2 class="section-heading">Herramientas prácticas</h2>
+        <p class="section-intro">
+          Herramientas gratuitas para conocer mejor tu coche.
+        </p>
+
+        <a class="tool-link" href="/calculadora-consumo.html">
+          <div>
+            <div class="tool-title">Calculadora de consumo de combustible</div>
+            <div class="tool-description">
+              Calcula los litros consumidos por cada 100 km de tu trayecto.
+            </div>
+          </div>
+          <span class="tool-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>© <span id="year"></span> CarAdvia</strong>
+      <div>
+        <a href="/es/">Inicio</a>
+        <a href="/privacy-policy.html">Política de privacidad</a>
+        <a href="/delete-account.html">Eliminar cuenta</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const selector = document.getElementById("language");
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem("caradvia-language", this.value);
+      window.location.href = this.value;
+    });
+
+    localStorage.setItem("caradvia-language", "/es/");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
