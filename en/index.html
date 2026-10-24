@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CarAdvia — Car Maintenance & Expense Tracking</title>
+  <meta name="description" content="Manage your vehicles, track fuel consumption and expenses, and keep up with maintenance using CarAdvia.">
+  <meta name="theme-color" content="#101827">
+
+  <link rel="canonical" href="https://caradvia.com/en/">
+  <link rel="alternate" hreflang="fr" href="https://caradvia.com/">
+  <link rel="alternate" hreflang="es" href="https://caradvia.com/es/">
+  <link rel="alternate" hreflang="en" href="https://caradvia.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://caradvia.com/">
+
+  <style>
+    :root {
+      --bg: #f4f6fa;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #647087;
+      --navy: #101827;
+      --gold: #e5b85c;
+      --border: #e1e6ef;
+      --shadow: 0 12px 35px rgba(16, 24, 39, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    body.dark {
+      --bg: #0c1220;
+      --surface: #151e2e;
+      --text: #edf1f8;
+      --muted: #a5b0c4;
+      --border: #293448;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .brand {
+      color: white;
+      text-decoration: none;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    select,
+    button {
+      font: inherit;
+    }
+
+    .language-select {
+      max-width: 165px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      border: 1px solid #465166;
+      background: #1b2638;
+      color: white;
+      cursor: pointer;
+    }
+
+    .theme-button {
+      border: 1px solid #465166;
+      background: #1b2638;
+      color: white;
+      border-radius: 8px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 76px 0 66px;
+      background:
+        radial-gradient(ellipse at top right, rgba(229,184,92,0.13), transparent 48%);
+    }
+
+    .hero-content {
+      max-width: 780px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #9a6b14;
+      background: rgba(229,184,92,0.18);
+      border: 1px solid rgba(229,184,92,0.4);
+      border-radius: 30px;
+      padding: 6px 13px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    body.dark .eyebrow {
+      color: #f2ce82;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.12;
+      margin: 0 0 22px;
+      letter-spacing: -1.2px;
+    }
+
+    .hero p {
+      max-width: 670px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 9px;
+      padding: 12px 19px;
+      font-weight: 700;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: #172033;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    section {
+      padding: 28px 0 54px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 25px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(229,184,92,0.18);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin: 0 0 9px;
+      font-size: 1.15rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tools-section {
+      padding-top: 8px;
+      padding-bottom: 65px;
+    }
+
+    .tools-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      padding: 22px 25px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+
+    .tools-panel h3 {
+      margin: 0 0 5px;
+      font-size: 1.05rem;
+    }
+
+    .tools-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .tool-link {
+      color: var(--text);
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 4px;
+    }
+
+    .tool-link:hover {
+      color: #b78322;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #d5dbea;
+      padding: 28px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #d5dbea;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 760px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 0 45px;
+      }
+
+      .tools-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="/en/" aria-label="CarAdvia home">
+        Car<span>Advia</span>
+      </a>
+
+      <div class="header-actions">
+        <select
+          id="language-selector"
+          class="language-select"
+          aria-label="Choose language"
+        >
+          <option value="/">🇫🇷 Français</option>
+          <option value="/es/">🇪🇸 Español</option>
+          <option value="/en/">🇬🇧 English</option>
+        </select>
+
+        <button
+          id="theme-toggle"
+          class="theme-button"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙 Dark mode
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="eyebrow">Your car, under control</span>
+
+        <h1>Take control of your vehicle and your expenses.</h1>
+
+        <p>
+          CarAdvia helps you keep track of your vehicles, monitor fuel
+          consumption and expenses, and stay on top of maintenance.
+          Everything you need to manage your car more easily.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="https://play.google.com/store/apps/details?id=com.CarAdvia.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discover the app
+          </a>
+
+          <a class="button button-secondary" href="#features">
+            Explore features
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Everything you need to manage your car</h2>
+          <p>Keep your vehicle information organised in one place.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">🚘</div>
+            <h3>Manage your vehicles</h3>
+            <p>
+              Keep essential information about your vehicles together,
+              including their details and mileage.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">⛽</div>
+            <h3>Track fuel and expenses</h3>
+            <p>
+              Record fuel purchases and vehicle expenses to better
+              understand your running costs.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">🔧</div>
+            <h3>Stay on top of maintenance</h3>
+            <p>
+              Keep track of maintenance, repairs and reminders so you
+              can better plan the upkeep of your vehicle.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Practical tools</h2>
+          <p>Simple tools to help you understand your vehicle's costs.</p>
+        </div>
+
+        <div class="tools-panel">
+          <div>
+            <h3>Fuel consumption calculator</h3>
+            <p>
+              Calculate your fuel consumption in litres per 100 km
+              and estimate the cost of a trip.
+            </p>
+          </div>
+
+          <a class="tool-link" href="/calculadora-consumo.html">
+            Open calculator →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> CarAdvia. All rights reserved.</div>
+
+      <nav class="footer-links" aria-label="Legal information">
+        <a href="/privacy-policy.html">Privacy policy</a>
+        <a href="/delete-account.html">Delete account</a>
+        <a href="mailto:support@caradvia.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const languageSelector = document.getElementById("language-selector");
+    const themeToggle = document.getElementById("theme-toggle");
+
+    // Keep the selector consistent with this page's language.
+    languageSelector.value = "/en/";
+
+    languageSelector.addEventListener("change", function () {
+      localStorage.setItem("caradvia-language", this.value);
+      window.location.href = this.value;
+    });
+
+    // Restore the user's saved theme.
+    const savedTheme = localStorage.getItem("caradvia-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
+    function updateThemeButton() {
+      themeToggle.textContent = document.body.classList.contains("dark")
+        ? "☀️ Light mode"
+        : "🌙 Dark mode";
+    }
+
+    updateThemeButton();
+
+    themeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      localStorage.setItem(
+        "caradvia-theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+      );
+
+      updateThemeButton();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
