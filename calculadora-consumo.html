@@ -7,7 +7,269 @@
 <link rel="canonical" href="https://caradvia.com/calculadora-consumo.html"><meta name="robots" content="index,follow">
 <meta property="og:type" content="website"><meta property="og:title" content="Calculadora de consumo de combustible | CarAdvia"><meta property="og:description" content="Calcula cuánto combustible consume tu coche por cada 100 km con esta herramienta gratuita."><meta property="og:url" content="https://caradvia.com/calculadora-consumo.html">
 <style>
-:root{--bg:#0b1220;--panel:#121e31;--line:#2a3a53;--text:#f4f7fb;--muted:#b4c0d1;--green:#79e0b0;--blue:#8ab8ff;--danger:#ffb4a9}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#203c58 0,transparent 45%),var(--bg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);line-height:1.65}a{color:#b6f5d6;text-underline-offset:4px}.wrap{width:min(1050px,calc(100% - 32px));margin:auto}header{padding:22px 0;border-bottom:1px solid #ffffff14}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;color:white;text-decoration:none}.brand span{color:var(--green)}.tag{font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 10px}main{padding:48px 0 65px}.hero{max-width:780px;margin-bottom:28px}.eyebrow{color:var(--green);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em}h1{font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;letter-spacing:-.055em;margin:12px 0 18px}.lead{font-size:1.12rem;color:var(--muted)}.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}.card{background:linear-gradient(160deg,#17263b,#101a2b);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,30px);box-shadow:0 22px 65px #0002}h2{font-size:1.45rem;line-height:1.25;letter-spacing:-.025em;margin:0 0 12px}.sub{color:var(--muted);margin:0 0 22px}.field{margin:18px 0}label{display:block;font-size:.92rem;font-weight:750;margin-bottom:8px}.inputrow{display:flex;align-items:center;background:#0b1423;border:1px solid #354963;border-radius:12px;overflow:hidden}input{width:100%;min-width:0;background:transparent;color:white;border:0;padding:14px;font-size:1rem;outline:none}input:focus{box-shadow:inset 0 0 0 2px var(--green)}.unit{padding:0 13px;color:var(--muted);white-space:nowrap}.hint{font-size:.82rem;color:var(--muted);margin:7px 0 0}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}button{border:0;border-radius:12px;padding:13px 17px;font:inherit;font-weight:850;cursor:pointer}.primary{background:var(--green);color:#062218}.secondary{background:#20314a;color:white;border:1px solid #354963}button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.result{background:#091522;border:1px solid #315344;border-radius:16px;padding:20px;margin-top:24px}.resultlabel{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:800}.big{font-size:clamp(2.4rem,6vw,3.7rem);font-weight:900;letter-spacing:-.06em;line-height:1.2;margin:5px 0;color:var(--green)}.result p{margin:0;color:var(--muted)}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.mini{padding:12px;background:#152438;border-radius:12px}.mini b{display:block;font-size:1.05rem}.mini span{font-size:.8rem;color:var(--muted)}.error{color:var(--danger);font-size:.9rem;min-height:1.4em}.sideicon{width:44px;height:44px;display:grid;place-items:center;background:#203c3a;border-radius:14px;font-size:1.3rem;margin-bottom:18px}.steps{display:grid;gap:14px;margin-top:20px}.step{display:flex;gap:12px;align-items:flex-start}.num{flex:0 0 30px;height:30px;border-radius:10px;background:#203c3a;color:var(--green);display:grid;place-items:center;font-weight:900}.step p{margin:2px 0 0;color:var(--muted);font-size:.94rem}.content{max-width:850px;margin:54px auto 0}.content h2{font-size:1.8rem;margin:34px 0 12px}.content p,.content li{color:#d3dce8}.formula{font-size:1.15rem;font-weight:850;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;margin:20px 0}.note{border-left:3px solid var(--blue);padding:12px 16px;background:var(--panel);border-radius:0 12px 12px 0;color:var(--muted)}details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-weight:750}details p{margin-bottom:0}.cta{margin-top:38px;padding:25px;border:1px solid #315344;border-radius:20px;background:linear-gradient(120deg,#152e32,#14253a)}.cta h2{margin-top:0}footer{border-top:1px solid #ffffff14;padding:24px 0;color:var(--muted);font-size:.88rem}footer .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}@media(max-width:760px){.layout{grid-template-columns:1fr}main{padding-top:35px}.tag{max-width:155px;text-align:center}}
+:root {
+  --bg: hsl(220, 20%, 97%);
+  --panel: #ffffff;
+  --line: hsl(220, 15%, 88%);
+  --text: hsl(220, 30%, 15%);
+  --muted: hsl(220, 10%, 45%);
+  --green: hsl(40, 96%, 53%);
+  --blue: hsl(215, 50%, 23%);
+  --danger: #b42318;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+}
+a { color: var(--blue); text-underline-offset: 4px; }
+a:hover { color: #315784; }
+
+.wrap { width: min(1050px, calc(100% - 32px)); margin: auto; }
+
+header {
+  background: var(--blue);
+  padding: 22px 0;
+  border-bottom: 4px solid var(--green);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  color: white;
+  text-decoration: none;
+}
+.brand span { color: var(--green); }
+.tag {
+  font-size: .8rem;
+  color: white;
+  border: 1px solid #ffffff55;
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+
+main { padding: 48px 0 65px; }
+.hero { max-width: 780px; margin-bottom: 28px; }
+.eyebrow {
+  color: #8a5b00;
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+h1 {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.055em;
+  margin: 12px 0 18px;
+  color: var(--blue);
+}
+.lead { font-size: 1.12rem; color: var(--muted); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 20px;
+  align-items: start;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(20px, 3vw, 30px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .07);
+}
+h2 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+.sub { color: var(--muted); margin: 0 0 22px; }
+.field { margin: 18px 0; }
+label { display: block; font-size: .92rem; font-weight: 750; margin-bottom: 8px; }
+
+.inputrow {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+input {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  color: var(--text);
+  border: 0;
+  padding: 14px;
+  font-size: 1rem;
+  outline: none;
+}
+input:focus { box-shadow: inset 0 0 0 2px var(--green); }
+.unit { padding: 0 13px; color: var(--muted); white-space: nowrap; }
+.hint { font-size: .82rem; color: var(--muted); margin: 7px 0 0; }
+
+.buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 17px;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+button:hover { transform: translateY(-1px); }
+.primary { background: var(--green); color: var(--text); }
+.secondary { background: var(--blue); color: white; border: 1px solid var(--blue); }
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+
+.result {
+  background: #fffaf0;
+  border: 1px solid #e9c76d;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 24px;
+}
+.resultlabel {
+  font-size: .8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 800;
+}
+.big {
+  font-size: clamp(2.4rem, 6vw, 3.7rem);
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: 1.2;
+  margin: 5px 0;
+  color: var(--blue);
+}
+.result p { margin: 0; color: var(--muted); }
+.resultgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.mini { padding: 12px; background: #f0f2f6; border-radius: 12px; }
+.mini b { display: block; font-size: 1.05rem; }
+.mini span { font-size: .8rem; color: var(--muted); }
+.error { color: var(--danger); font-size: .9rem; min-height: 1.4em; }
+
+.sideicon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: #fff4d8;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+.steps { display: grid; gap: 14px; margin-top: 20px; }
+.step { display: flex; gap: 12px; align-items: flex-start; }
+.num {
+  flex: 0 0 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: #e8eef6;
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.step p { margin: 2px 0 0; color: var(--muted); font-size: .94rem; }
+
+.content { max-width: 850px; margin: 54px auto 0; }
+.content h2 { font-size: 1.8rem; margin: 34px 0 12px; }
+.content p, .content li { color: var(--text); }
+.formula {
+  font-size: 1.15rem;
+  font-weight: 850;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  margin: 20px 0;
+}
+.note {
+  border-left: 3px solid var(--green);
+  padding: 12px 16px;
+  background: #fff4d8;
+  border-radius: 0 12px 12px 0;
+  color: var(--text);
+}
+details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+summary { cursor: pointer; font-weight: 750; }
+details p { margin-bottom: 0; }
+
+.cta {
+  margin-top: 38px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  border-radius: 18px;
+  background: #e8eef6;
+}
+.cta h2 { margin-top: 0; }
+.cta a { font-weight: 800; }
+
+footer {
+  border-top: 4px solid var(--green);
+  padding: 24px 0;
+  background: var(--blue);
+  color: #fff;
+  font-size: .88rem;
+}
+footer .foot { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+footer a { color: white; }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  main { padding-top: 35px; }
+  .tag { max-width: 155px; text-align: center; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(220, 25%, 8%);
+    --panel: hsl(220, 25%, 12%);
+    --line: hsl(220, 20%, 23%);
+    --text: hsl(220, 15%, 93%);
+    --muted: hsl(220, 10%, 68%);
+    --green: hsl(40, 96%, 53%);
+    --blue: hsl(215, 50%, 35%);
+    --danger: #ffb4a9;
+  }
+  header, footer { background: hsl(220, 25%, 6%); }
+  .eyebrow { color: hsl(40, 96%, 65%); }
+  .inputrow { background: hsl(220, 25%, 9%); }
+  .result { background: hsl(40, 30%, 12%); border-color: hsl(40, 50%, 35%); }
+  .mini { background: hsl(220, 20%, 17%); }
+  .formula { background: var(--panel); }
+  .note { background: hsl(40, 35%, 16%); }
+  .cta { background: hsl(215, 35%, 18%); }
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de consumo de combustible CarAdvia","url":"https://caradvia.com/calculadora-consumo.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"es","description":"Herramienta gratuita para calcular el consumo de combustible de un vehículo en litros por cada 100 kilómetros.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 </head>
