@@ -929,22 +929,48 @@
   opacity: 1;
 }
 
-.garage-car--vehicle .garage-car-image {
-  background-image:
-    linear-gradient(180deg, transparent 25%, #08111e 100%),
-    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80");
-}
-
-.garage-car--maintenance .garage-car-image {
-  background-image:
-    linear-gradient(180deg, transparent 25%, #08111e 100%),
-    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80");
-}
-
+/* Silhouettes automobiles — aucune photo externe */
+.garage-car--vehicle .garage-car-image,
+.garage-car--maintenance .garage-car-image,
 .garage-car--expenses .garage-car-image {
-  background-image:
-    linear-gradient(180deg, transparent 25%, #08111e 100%),
-    url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80");
+  background-image: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(36, 73, 105, 0.48),
+    rgba(8, 17, 30, 0.2) 48%,
+    #08111e 100%
+  );
+  isolation: isolate;
+}
+
+.garage-car-image::before {
+  content: "";
+  position: absolute;
+  inset: 8% -8% 28%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.94;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+}
+
+.garage-car--vehicle .garage-car-image::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M65 195 L90 160 L160 142 L225 95 Q250 78 300 82 L380 95 Q410 105 448 150 L500 165 Q525 175 530 205 L515 220 L90 220 L65 210Z' fill='%230c1a2a' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M190 140 L238 100 Q255 90 300 94 L370 106 L414 147Z' fill='%231b3b57' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M70 192 L120 183 M430 182 L510 194' stroke='%23f4f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='127' cy='218' r='32' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='437' cy='218' r='32' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+}
+
+.garage-car--maintenance .garage-car-image::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M70 205 L105 166 L185 145 L240 104 Q260 88 310 95 L395 115 L455 162 L510 178 L530 210 L510 224 L90 224Z' fill='%230a1726' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M205 144 L250 109 Q268 99 305 104 L380 122 L420 157Z' fill='%23172e45' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M83 192 L140 181 M450 181 L512 195' stroke='%23f5f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='160' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='440' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+}
+
+.garage-car--expenses .garage-car-image::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M60 200 L100 165 L175 150 L230 100 L340 91 L410 122 L465 160 L515 175 L535 210 L515 225 L85 225Z' fill='%230a1726' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M195 145 L245 106 L335 101 L395 126 L430 155Z' fill='%23172e45' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M70 194 L132 183 M463 183 L519 195' stroke='%23f5f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='155' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='445' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+}
+
+.garage-car:hover .garage-car-image::before,
+.garage-car:focus-visible .garage-car-image::before {
+  transform: scale(1.06) translateY(-4px);
+  filter: drop-shadow(0 0 12px rgba(237, 135, 59, 0.28))
+          drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
 }
 
 .garage-car-copy {
