@@ -929,41 +929,102 @@
   opacity: 1;
 }
 
-/* Silhouettes automobiles — aucune photo externe */
-.garage-car--vehicle .garage-car-image,
-.garage-car--maintenance .garage-car-image,
-.garage-car--expenses .garage-car-image {
-  background-image: radial-gradient(
-    ellipse at 50% 40%,
-    rgba(36, 73, 105, 0.48),
-    rgba(8, 17, 30, 0.2) 48%,
-    #08111e 100%
-  );
-  isolation: isolate;
+/* CARADVIA — Automotive design studio */
+.garage-car-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse at 50% 42%, #14283d 0%, #0a1422 58%, #060c15 100%);
 }
 
-.garage-car-image::before {
+.garage-car-image::after {
   content: "";
   position: absolute;
-  inset: 8% -8% 28%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.94;
-  transition: transform 0.6s ease, filter 0.4s ease;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 45%, rgba(5, 11, 20, .35) 68%, #08111e 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 39px,
+      rgba(130, 175, 210, .045) 40px
+    );
 }
 
-.garage-car--vehicle .garage-car-image::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M65 195 L90 160 L160 142 L225 95 Q250 78 300 82 L380 95 Q410 105 448 150 L500 165 Q525 175 530 205 L515 220 L90 220 L65 210Z' fill='%230c1a2a' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M190 140 L238 100 Q255 90 300 94 L370 106 L414 147Z' fill='%231b3b57' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M70 192 L120 183 M430 182 L510 194' stroke='%23f4f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='127' cy='218' r='32' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='437' cy='218' r='32' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+.garage-car-image svg {
+  position: absolute;
+  width: 112%;
+  height: 82%;
+  left: -6%;
+  top: 0;
+  overflow: visible;
+  transition: transform .65s cubic-bezier(.2, .75, .25, 1);
 }
 
-.garage-car--maintenance .garage-car-image::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M70 205 L105 166 L185 145 L240 104 Q260 88 310 95 L395 115 L455 162 L510 178 L530 210 L510 224 L90 224Z' fill='%230a1726' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M205 144 L250 109 Q268 99 305 104 L380 122 L420 157Z' fill='%23172e45' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M83 192 L140 181 M450 181 L512 195' stroke='%23f5f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='160' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='440' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+.garage-car:hover .garage-car-image svg,
+.garage-car:focus-visible .garage-car-image svg {
+  transform: scale(1.045) translateY(-3px);
 }
 
-.garage-car--expenses .garage-car-image::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'%3E%3Cpath d='M60 200 L100 165 L175 150 L230 100 L340 91 L410 122 L465 160 L515 175 L535 210 L515 225 L85 225Z' fill='%230a1726' stroke='%2388bce0' stroke-width='3'/%3E%3Cpath d='M195 145 L245 106 L335 101 L395 126 L430 155Z' fill='%23172e45' stroke='%23ed873b' stroke-width='2'/%3E%3Cpath d='M70 194 L132 183 M463 183 L519 195' stroke='%23f5f8ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='155' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3Ccircle cx='445' cy='220' r='31' fill='%23050a12' stroke='%23a5cce9' stroke-width='5'/%3E%3C/svg%3E");
+.garage-car-image .sketch-main {
+  fill: none;
+  stroke: #a7c9e5;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.garage-car-image .sketch-detail {
+  fill: none;
+  stroke: #5f88aa;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.garage-car-image .sketch-construction {
+  fill: none;
+  stroke: #53718c;
+  stroke-width: .7;
+  stroke-dasharray: 4 5;
+  opacity: .7;
+}
+
+.garage-car-image .sketch-accent {
+  fill: none;
+  stroke: #ed873b;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.garage-car-image .sketch-label {
+  fill: #91abc2;
+  font: 9px monospace;
+  letter-spacing: 2px;
+}
+
+.garage-car-image .sketch-dimension {
+  fill: none;
+  stroke: #ed873b;
+  stroke-width: .8;
+  opacity: .85;
+}
+
+.garage-car-image .sketch-fill {
+  fill: #102238;
+  fill-opacity: .58;
+}
+
+@media (max-width: 760px) {
+  .garage-car-image svg {
+    width: 120%;
+    height: 78%;
+    left: -10%;
+    top: 0;
+  }
 }
 
 .garage-car:hover .garage-car-image::before,
@@ -1135,7 +1196,47 @@
 
     <div class="garage-showcase">
       <div class="garage-car garage-car--vehicle" tabindex="0">
-        <div class="garage-car-image"></div>
+        <div class="garage-car-image">
+  <svg viewBox="0 0 600 340" role="img" aria-label="Esquisse technique d'une voiture sportive vue de trois-quarts">
+    <g class="sketch-construction">
+      <path d="M35 205H565 M300 45V292 M70 245L520 105"/>
+      <ellipse cx="305" cy="218" rx="238" ry="82"/>
+      <path d="M70 218L160 90L400 80L530 190"/>
+    </g>
+    <g class="sketch-main">
+      <path class="sketch-fill" d="M68 225L90 193L150 172L215 119Q238 102 280 105L370 119L435 157L492 178L535 213L523 239L459 251L120 260L72 247Z"/>
+      <path d="M68 225L90 193L150 172L215 119Q238 102 280 105L370 119L435 157L492 178L535 213L523 239L459 251L120 260L72 247Z"/>
+      <path d="M150 172L213 137L252 116L305 119L370 132L421 165L320 172Z"/>
+      <path d="M252 116L263 166 M305 119L320 172 M370 132L421 165"/>
+      <path d="M92 194L175 197L225 215L459 213"/>
+      <path d="M120 260L145 276L198 278L225 261 M390 256L417 274L470 270L492 248"/>
+      <path d="M145 276A43 43 0 0 1 225 261 M390 256A43 43 0 0 1 470 270"/>
+      <path d="M160 270A27 27 0 0 1 211 263 M405 259A27 27 0 0 1 454 269"/>
+      <path d="M79 225L127 219L150 227L122 237L78 237Z"/>
+      <path d="M467 190L508 204L524 217L486 211Z"/>
+      <path d="M179 199L201 221 M321 173L336 218 M421 165L439 212"/>
+    </g>
+    <g class="sketch-detail">
+      <path d="M103 202L160 183L191 184 M231 129L247 126 M328 129L367 143"/>
+      <path d="M249 177L279 183L306 180 M346 188L401 187L430 198"/>
+      <path d="M100 243L151 249 M235 248L380 246 M465 235L504 231"/>
+      <path d="M154 281L154 290 M201 282L201 291 M410 280L410 289 M454 278L454 287"/>
+      <path d="M91 193L82 179L113 171 M435 157L451 146L473 166"/>
+      <path d="M145 276L128 293 M470 270L493 286"/>
+    </g>
+    <g class="sketch-accent">
+      <path d="M81 228L122 231 M472 193L509 207"/>
+      <path d="M214 119L238 102L280 105"/>
+      <path d="M150 172L215 119"/>
+    </g>
+    <g class="sketch-dimension">
+      <path d="M115 303H470 M115 297V309 M470 297V309"/>
+      <path d="M115 303L126 299 M115 303L126 307 M470 303L459 299 M470 303L459 307"/>
+    </g>
+    <text class="sketch-label" x="35" y="35">CONCEPT STUDY / 01</text>
+    <text class="sketch-label" x="270" y="324">PROPORTION — A</text>
+  </svg>
+</div>
         <div class="garage-car-copy">
           <span class="garage-number">01 / GARAGE</span>
           <h3>Vos véhicules</h3>
@@ -1146,7 +1247,46 @@
       </div>
 
       <div class="garage-car garage-car--maintenance" tabindex="0">
-        <div class="garage-car-image"></div>
+        <div class="garage-car-image">
+  <svg viewBox="0 0 600 340" role="img" aria-label="Étude technique de face d'une voiture sportive">
+    <g class="sketch-construction">
+      <path d="M300 38V304 M90 200H510 M130 230H470"/>
+      <ellipse cx="300" cy="208" rx="180" ry="110"/>
+      <path d="M110 230L180 100L420 100L490 230"/>
+    </g>
+    <g class="sketch-main">
+      <path class="sketch-fill" d="M130 231L148 178L190 145L220 99Q300 74 380 99L410 145L452 178L470 231L450 258L405 269L195 269L150 258Z"/>
+      <path d="M130 231L148 178L190 145L220 99Q300 74 380 99L410 145L452 178L470 231L450 258L405 269L195 269L150 258Z"/>
+      <path d="M190 145L220 99Q300 80 380 99L410 145L368 158L232 158Z"/>
+      <path d="M220 99L232 158 M380 99L368 158 M300 82V157"/>
+      <path d="M148 178L230 189L252 219L170 219Z M452 178L370 189L348 219L430 219Z"/>
+      <path d="M170 219L252 219L242 241L162 239Z M430 219L348 219L358 241L438 239Z"/>
+      <path d="M232 158L215 184L252 219 M368 158L385 184L348 219"/>
+      <path d="M255 201L282 191L318 191L345 201L335 236L265 236Z"/>
+      <path d="M265 236L280 247L320 247L335 236"/>
+      <path d="M151 258L194 269 M449 258L406 269"/>
+    </g>
+    <g class="sketch-detail">
+      <path d="M125 237L170 243L210 239 M475 237L430 243L390 239"/>
+      <path d="M186 150L205 160 M414 150L395 160"/>
+      <path d="M238 166L250 179 M362 166L350 179"/>
+      <path d="M190 145L176 160 M410 145L424 160"/>
+      <path d="M200 268L200 281 M400 268L400 281"/>
+      <path d="M150 188L138 205 M450 188L462 205"/>
+    </g>
+    <g class="sketch-accent">
+      <path d="M153 224L234 224 M447 224L366 224"/>
+      <path d="M220 99Q300 74 380 99"/>
+      <path d="M255 201L282 191L318 191L345 201"/>
+    </g>
+    <g class="sketch-dimension">
+      <path d="M115 290H485 M115 284V296 M485 284V296"/>
+      <path d="M300 66V280 M294 66H306 M294 280H306"/>
+    </g>
+    <text class="sketch-label" x="35" y="35">FRONT ELEVATION / 02</text>
+    <text class="sketch-label" x="250" y="317">SYMMETRY AXIS</text>
+  </svg>
+</div>
         <div class="garage-car-copy">
           <span class="garage-number">02 / ATELIER</span>
           <h3>Votre entretien</h3>
@@ -1157,7 +1297,47 @@
       </div>
 
       <div class="garage-car garage-car--expenses" tabindex="0">
-        <div class="garage-car-image"></div>
+        <div class="garage-car-image">
+  <svg viewBox="0 0 600 340" role="img" aria-label="Esquisse de profil d'une voiture sportive">
+    <g class="sketch-construction">
+      <path d="M30 224H570 M300 50V285"/>
+      <ellipse cx="300" cy="228" rx="250" ry="65"/>
+      <path d="M70 240L190 110L440 120L530 225"/>
+    </g>
+    <g class="sketch-main">
+      <path class="sketch-fill" d="M48 230L75 205L145 188L218 127Q245 105 300 112L387 125L449 172L511 192L545 220L533 242L485 252L105 252L58 245Z"/>
+      <path d="M48 230L75 205L145 188L218 127Q245 105 300 112L387 125L449 172L511 192L545 220L533 242L485 252L105 252L58 245Z"/>
+      <path d="M166 184L225 132Q249 116 294 120L370 131L424 171Z"/>
+      <path d="M225 132L244 181 M294 120L308 181 M370 131L424 171"/>
+      <path d="M145 188L166 184L204 203L448 201"/>
+      <path d="M105 252A46 46 0 0 1 197 252 M402 252A46 46 0 0 1 494 252"/>
+      <path d="M119 252A32 32 0 0 1 183 252 M416 252A32 32 0 0 1 480 252"/>
+      <path d="M75 205L135 209L153 221L82 224Z"/>
+      <path d="M475 185L511 198L532 216L493 211Z"/>
+      <path d="M205 203L221 239 M308 181L327 239 M424 171L441 220"/>
+      <path d="M220 239L390 239"/>
+    </g>
+    <g class="sketch-detail">
+      <path d="M88 233L128 237 M204 245L385 245 M495 235L524 231"/>
+      <path d="M237 128L253 124 M326 128L363 136"/>
+      <path d="M145 188L137 177L163 165"/>
+      <path d="M449 172L461 162L483 183"/>
+      <path d="M154 252L154 268 M446 252L446 268"/>
+      <path d="M198 201L218 190 M390 198L412 187"/>
+    </g>
+    <g class="sketch-accent">
+      <path d="M80 211L137 214 M479 188L516 202"/>
+      <path d="M218 127Q245 105 300 112"/>
+      <path d="M145 188L218 127"/>
+    </g>
+    <g class="sketch-dimension">
+      <path d="M105 291H494 M105 285V297 M494 285V297"/>
+      <path d="M105 291L116 287 M105 291L116 295 M494 291L483 287 M494 291L483 295"/>
+    </g>
+    <text class="sketch-label" x="35" y="35">SIDE PROFILE / 03</text>
+    <text class="sketch-label" x="260" y="316">WHEELBASE STUDY</text>
+  </svg>
+</div>
         <div class="garage-car-copy">
           <span class="garage-number">03 / MAÎTRISE</span>
           <h3>Vos dépenses</h3>
