@@ -102,6 +102,19 @@
       letter-spacing: -.7px;
     }
 
+     .brand-logo {
+        display: block;
+        width: 150px;
+        height: auto;
+        object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    width: 125px;
+  }
+}
+
     .brand-mark {
       width: 36px;
       height: 36px;
@@ -872,8 +885,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="CarAdvia, accueil">
-        <span class="brand-mark" aria-hidden="true">C</span>
-        <span class="brand-name">Car<span>Advia</span></span>
+        <img src="/assets/logo.png" alt="CarAdvia" class="brand-logo">
+          <span class="brand-name">Car<span>Advia</span></span>
       </a>
 
       <div class="header-right">
