@@ -879,417 +879,137 @@
     padding-right: 22px;
   }
 }
-    /* ==========================================
-   CARADVIA 3.0 — IMMERSIVE NIGHT CIRCUIT
-   ========================================== */
-
-.features-section {
-  position: relative;
-  isolation: isolate;
-  padding: 100px 0 110px;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 38%, rgba(36, 78, 116, .28), transparent 48%),
-    linear-gradient(180deg, #08111e 0%, #0a1523 48%, #060c15 100%);
-}
-
-/* Décor commun : halo, horizon, piste et lignes lumineuses */
-.features-section::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 48%, transparent 0 18%, rgba(4, 9, 16, .18) 62%, #060c15 100%),
-    linear-gradient(180deg, transparent 0 35%, rgba(4, 9, 16, .12) 48%, #060c15 100%);
-}
-
-.features-section::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 38%;
-  height: 80%;
-  pointer-events: none;
-  transform: perspective(360px) rotateX(58deg);
-  transform-origin: top center;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 11%,
-      rgba(67, 133, 190, .11) 11.1% 11.25%,
-      transparent 11.35% 22%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 75px,
-      rgba(255,255,255,.035) 76px 78px,
-      transparent 79px 150px
-    ),
-    linear-gradient(180deg, rgba(18, 39, 61, .4), rgba(3, 7, 13, .94));
-  border-top: 1px solid rgba(96, 164, 221, .16);
-}
-
-/* L'en-tête de la scène */
-.features-section .section-heading {
-  position: relative;
-  z-index: 2;
-  max-width: 760px;
-  margin: 0 auto 26px;
-  text-align: center;
-}
-
-.features-section .section-kicker {
-  color: #ffab64;
-}
-
-.features-section .section-intro {
-  margin-inline: auto;
-}
-
-/* Le plateau partagé par les trois voitures */
-.garage-scene {
-  position: relative;
-  min-height: 510px;
-  isolation: isolate;
-}
-
-.garage-scene::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 4%;
-  right: 4%;
-  bottom: 26px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(78, 147, 205, .4),
-    rgba(237, 135, 59, .36),
-    rgba(78, 147, 205, .4),
-    transparent
-  );
-  box-shadow: 0 0 24px rgba(66, 139, 202, .22);
-}
-
-.garage-cars {
+  /* CARADVIA — nouvelle section automobile */
+.garage-showcase {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: end;
-  gap: 0;
-  min-height: 510px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 42px;
+  align-items: stretch;
 }
 
 .garage-car {
-  --car-glow: rgba(66, 139, 202, .3);
   position: relative;
-  display: flex;
   min-width: 0;
-  min-height: 450px;
+  overflow: hidden;
+  min-height: 410px;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
-  padding: 18px 10px 25px;
-  border: 0;
-  color: var(--white);
-  background: transparent;
-  text-align: center;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+  padding: 24px;
+  text-align: left;
+  color: #f5f7fb;
+  background:
+    linear-gradient(180deg, transparent 15%, rgba(4, 10, 20, .55) 48%, #08111e 100%),
+    radial-gradient(ellipse at 50% 35%, #203955 0%, #101d30 48%, #08111e 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 4px;
+  transition: transform .35s ease, border-color .35s ease;
+  outline-offset: 4px;
 }
 
-.garage-car::before {
-  content: "";
+.garage-car:hover,
+.garage-car:focus-visible {
+  transform: translateY(-7px);
+  border-color: rgba(237,135,59,.75);
+}
+
+.garage-car-image {
   position: absolute;
-  z-index: -1;
-  left: 12%;
-  right: 12%;
-  bottom: 95px;
-  height: 70px;
-  border-radius: 50%;
-  background: var(--car-glow);
-  filter: blur(35px);
-  opacity: .28;
-  transition: opacity .5s ease, transform .6s ease;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: .82;
+  transition: transform .6s ease, opacity .35s ease;
 }
 
-.garage-car-art {
-  display: block;
-  width: 100%;
-  max-width: 390px;
-  height: 270px;
-  overflow: visible;
-  transform: translateY(0) scale(.91);
-  transform-origin: center bottom;
-  filter: drop-shadow(0 15px 24px rgba(0,0,0,.35));
-  transition:
-    transform .65s cubic-bezier(.2,.8,.2,1),
-    filter .65s ease;
+.garage-car:hover .garage-car-image,
+.garage-car:focus-visible .garage-car-image {
+  transform: scale(1.045);
+  opacity: 1;
 }
 
-.garage-car-art .car-fill {
-  fill: #0b1624;
-  stroke: #6b9dc6;
-  stroke-width: 1.6;
-  stroke-linejoin: round;
+.garage-car--vehicle .garage-car-image {
+  background-image:
+    linear-gradient(180deg, transparent 25%, #08111e 100%),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80");
 }
 
-.garage-car-art .car-line {
-  fill: none;
-  stroke: #75b4e7;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.garage-car--maintenance .garage-car-image {
+  background-image:
+    linear-gradient(180deg, transparent 25%, #08111e 100%),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80");
 }
 
-.garage-car-art .car-glass {
-  fill: #152c43;
-  stroke: #6da7d4;
-  stroke-width: 1.3;
-}
-
-.garage-car-art .car-light {
-  fill: #d8edff;
-  stroke: #82c8ff;
-  stroke-width: 1;
-  filter: drop-shadow(0 0 5px rgba(102, 185, 255, .9));
-}
-
-.garage-car-art .car-orange {
-  fill: #ed873b;
-  filter: drop-shadow(0 0 5px rgba(237, 135, 59, .75));
+.garage-car--expenses .garage-car-image {
+  background-image:
+    linear-gradient(180deg, transparent 25%, #08111e 100%),
+    url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80");
 }
 
 .garage-car-copy {
-  width: 100%;
-  max-width: 300px;
-  opacity: .72;
-  transform: translateY(5px);
-  transition: opacity .4s ease, transform .4s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.garage-car-number {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--orange-light);
-  font-size: .7rem;
-  font-weight: 800;
-  letter-spacing: 2.5px;
+.garage-number {
+  color: #ed873b;
+  font-size: .72rem;
+  letter-spacing: .17em;
+  font-weight: 700;
 }
 
-.garage-car h3 {
-  margin: 0 0 8px;
-  font-size: clamp(1.2rem, 2vw, 1.65rem);
-  letter-spacing: -.035em;
+.garage-car-copy h3 {
+  margin: 12px 0;
+  font-size: 1.45rem;
 }
 
 .garage-car-copy p {
-  margin: 0 auto;
-  max-width: 270px;
-  color: #aab7c8;
-  font-size: .9rem;
+  color: #b8c7d9;
+  font-size: .92rem;
   line-height: 1.65;
 }
 
-.garage-car-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
+.garage-link {
+  display: inline-block;
+  margin-top: 12px;
   color: #ffab64;
-  font-size: .82rem;
-  font-weight: 750;
-  opacity: .85;
+  font-weight: 600;
 }
 
-/* Sélection : la voiture avance vers le visiteur */
-.garage-car:hover .garage-car-art,
-.garage-car:focus-visible .garage-car-art,
-.garage-car.is-active .garage-car-art {
-  transform: translateY(-23px) scale(1.08);
-  filter:
-    drop-shadow(0 0 13px rgba(67, 151, 216, .2))
-    drop-shadow(0 24px 30px rgba(0,0,0,.55));
-}
-
-.garage-car:hover::before,
-.garage-car:focus-visible::before,
-.garage-car.is-active::before {
-  opacity: .75;
-  transform: scale(1.15);
-}
-
-.garage-car:hover .garage-car-copy,
-.garage-car:focus-visible .garage-car-copy,
-.garage-car.is-active .garage-car-copy {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.garage-car:focus-visible {
-  outline: 2px solid var(--orange-light);
-  outline-offset: -4px;
-  border-radius: 12px;
-}
-
-.garage-car[data-car="vehicle"] {
-  --car-glow: rgba(57, 137, 207, .45);
-}
-
-.garage-car[data-car="maintenance"] {
-  --car-glow: rgba(237, 135, 59, .3);
-}
-
-.garage-car[data-car="expenses"] {
-  --car-glow: rgba(57, 137, 207, .45);
-}
-
-/* L'indication discrète sous la scène */
 .garage-hint {
-  margin: 0;
-  color: rgba(170, 183, 200, .7);
+  margin-top: 26px;
   text-align: center;
-  font-size: .75rem;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
+  color: #aab7c8;
+  font-size: .8rem;
+  letter-spacing: .08em;
 }
 
-/* Tablettes */
-@media (max-width: 850px) {
-  .features-section {
-    padding: 80px 0;
-  }
-
-  .garage-scene,
-  .garage-cars {
-    min-height: 440px;
+@media (max-width: 760px) {
+  .garage-showcase {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 28px;
   }
 
   .garage-car {
-    min-height: 400px;
-    padding-inline: 4px;
+    min-height: 340px;
+    padding: 22px;
   }
 
-  .garage-car-art {
-    height: 215px;
-    transform: scale(.96);
+  .garage-car-image {
+    background-position: center 45%;
   }
 
-  .garage-car:hover .garage-car-art,
-  .garage-car:focus-visible .garage-car-art,
-  .garage-car.is-active .garage-car-art {
-    transform: translateY(-14px) scale(1.04);
-  }
-
-  .garage-car-copy p {
-    font-size: .82rem;
+  .garage-car-copy h3 {
+    font-size: 1.35rem;
   }
 }
 
-/* Mobile : le décor reste commun, la voiture active occupe la scène */
-@media (max-width: 600px) {
-  .features-section {
-    padding: 76px 0 55px;
-  }
-
-  .features-section .section-heading {
-    width: calc(100% - 36px);
-    margin-bottom: 12px;
-    text-align: left;
-  }
-
-  .features-section .section-intro {
-    margin-left: 0;
-  }
-
-  .garage-scene {
-    min-height: auto;
-  }
-
-  .garage-scene::before {
-    left: 18px;
-    right: 18px;
-    bottom: 0;
-  }
-
-  .garage-cars {
-    display: flex;
-    min-height: 0;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .garage-car {
-    width: 100%;
-    min-height: 72svh;
-    justify-content: center;
-    padding: 28px 18px 40px;
-    scroll-margin-top: 25px;
-  }
-
-  .garage-car + .garage-car {
-    border-top: 1px solid rgba(255,255,255,.055);
-  }
-
-  .garage-car-art {
-    width: min(100%, 410px);
-    height: auto;
-    max-height: 300px;
-    margin-bottom: 6px;
-    transform: translateY(12px) scale(.88);
-  }
-
-  .garage-car-copy {
-    max-width: 320px;
-    opacity: .6;
-    transform: translateY(10px);
-  }
-
-  .garage-car.is-active .garage-car-art {
-    transform: translateY(-8px) scale(1.04);
-  }
-
-  .garage-car.is-active .garage-car-copy {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .garage-car.is-active::before {
-    opacity: .65;
-  }
-
-  /* Sur mobile, les trois textes restent accessibles même sans toucher */
-  .garage-car-copy p {
-    font-size: .92rem;
-  }
-
-  .garage-hint {
-    padding: 8px 18px 0;
-    font-size: .66rem;
-  }
-
-  .features-grid {
-    display: none;
-  }
-}
-
-/* Accessibilité : animations réduites si demandées par le système */
 @media (prefers-reduced-motion: reduce) {
   .garage-car,
-  .garage-car-art,
-  .garage-car-copy,
-  .garage-car::before {
-    transition: none !important;
-  }
-
-  .garage-car:hover .garage-car-art,
-  .garage-car:focus-visible .garage-car-art,
-  .garage-car.is-active .garage-car-art {
-    transform: none;
+  .garage-car-image {
+    transition: none;
   }
 }
   </style>
@@ -1376,7 +1096,7 @@
       </div>
     </section>
 
-    <section class="section features-section" id="features">
+   <section class="section features-section" id="features">
   <div class="container">
     <div class="section-heading reveal">
       <p class="section-kicker">Trois machines. Une passion.</p>
@@ -1387,170 +1107,44 @@
       </p>
     </div>
 
-    <div class="garage-scene">
-      <div class="garage-cars">
+    <div class="garage-showcase">
+      <div class="garage-car garage-car--vehicle" tabindex="0">
+        <div class="garage-car-image"></div>
+        <div class="garage-car-copy">
+          <span class="garage-number">01 / GARAGE</span>
+          <h3>Vos véhicules</h3>
+          <p>Les informations essentielles de votre voiture,
+             réunies au même endroit.</p>
+          <span class="garage-link">Explorer le véhicule ↗</span>
+        </div>
+      </div>
 
-        <!-- 01 : VÉHICULE — trois quarts avant, tournée vers le centre -->
-        <button class="garage-car is-active"
-                type="button"
-                data-car="vehicle"
-                aria-pressed="true">
-          <svg class="garage-car-art" viewBox="0 0 420 280"
-               role="img" aria-label="Silhouette d'une sportive vue de trois quarts avant">
-            <defs>
-              <linearGradient id="vehicleBody" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#274968"/>
-                <stop offset=".48" stop-color="#101f31"/>
-                <stop offset="1" stop-color="#050b13"/>
-              </linearGradient>
-              <linearGradient id="vehicleGlass" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#284c6b"/>
-                <stop offset="1" stop-color="#0b1725"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="210" cy="235" rx="145" ry="17" fill="#02060b" opacity=".8"/>
-            <g transform="translate(4 0)">
-              <path class="car-fill" fill="url(#vehicleBody)"
-                d="M47 186 L69 153 Q81 141 116 132 L158 95 Q177 79 214 83 L276 104 Q301 113 323 137 L362 158 Q374 167 369 184 L354 206 L313 219 L112 226 L61 212 Z"/>
-              <path class="car-line"
-                d="M70 155 L119 144 L169 108 Q183 97 213 101 L272 118 Q294 126 316 148 L350 169"/>
-              <path class="car-glass" fill="url(#vehicleGlass)"
-                d="M151 132 L180 103 Q190 96 211 100 L253 113 L276 137 Z"/>
-              <path class="car-line" d="M215 101 L210 132 M151 132 L276 137"/>
-              <path class="car-line" d="M118 146 L146 155 L280 161"/>
-              <path class="car-fill" d="M47 186 L89 184 L115 198 L103 218 L61 212 Z"/>
-              <path class="car-line" d="M49 187 L83 185 L107 198"/>
-              <path class="car-light" d="M53 176 L83 168 L101 177 L84 185 L53 185 Z"/>
-              <path class="car-orange" d="M56 190 L79 188 L92 192 L72 196 Z"/>
-              <path class="car-fill" d="M300 153 L347 167 L358 183 L329 187 L305 173 Z"/>
-              <path class="car-light" d="M321 165 L349 175 L353 181 L331 177 Z"/>
-              <path class="car-line" d="M116 198 L132 207 L307 204 L335 190"/>
-              <path class="car-line" d="M126 219 L310 213"/>
-              <path class="car-fill" d="M92 202 L109 198 L123 210 L115 230 L90 230 L78 216 Z"/>
-              <ellipse cx="102" cy="215" rx="17" ry="22" fill="#02060b" stroke="#406987" stroke-width="2"/>
-              <ellipse cx="102" cy="215" rx="7" ry="10" fill="#152b40" stroke="#6da7d4"/>
-              <path class="car-line" d="M102 206 L102 224 M94 215 L110 215"/>
-              <path class="car-fill" d="M288 199 L309 194 L326 205 L319 222 L293 224 L281 213 Z"/>
-              <ellipse cx="305" cy="210" rx="16" ry="19" fill="#02060b" stroke="#406987" stroke-width="2"/>
-              <ellipse cx="305" cy="210" rx="7" ry="9" fill="#152b40" stroke="#6da7d4"/>
-              <path class="car-line" d="M305 202 L305 218 M298 210 L312 210"/>
-              <path class="car-line" d="M147 158 L159 181 L269 184"/>
-              <path class="car-line" d="M178 184 L203 192 L270 189"/>
-              <path class="car-orange" d="M170 190 L232 190 L245 193 L180 196 Z"/>
-            </g>
-          </svg>
+      <div class="garage-car garage-car--maintenance" tabindex="0">
+        <div class="garage-car-image"></div>
+        <div class="garage-car-copy">
+          <span class="garage-number">02 / ATELIER</span>
+          <h3>Votre entretien</h3>
+          <p>Suivez les opérations réalisées et gardez un œil
+             sur les prochaines échéances.</p>
+          <span class="garage-link">Maîtriser l'entretien ↗</span>
+        </div>
+      </div>
 
-          <span class="garage-car-copy">
-            <span class="garage-car-number">01 / GARAGE</span>
-            <h3>Vos véhicules</h3>
-            <p>Les informations essentielles de votre voiture, réunies au même endroit.</p>
-            <span class="garage-car-cta">Explorer le véhicule <span>↗</span></span>
-          </span>
-        </button>
-
-        <!-- 02 : ENTRETIEN — sportive de face -->
-        <button class="garage-car"
-                type="button"
-                data-car="maintenance"
-                aria-pressed="false">
-          <svg class="garage-car-art" viewBox="0 0 420 280"
-               role="img" aria-label="Silhouette d'une sportive vue de face">
-            <defs>
-              <linearGradient id="maintenanceBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#274968"/>
-                <stop offset=".5" stop-color="#101f31"/>
-                <stop offset="1" stop-color="#050b13"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="210" cy="237" rx="120" ry="15" fill="#02060b" opacity=".8"/>
-            <path class="car-fill" fill="url(#maintenanceBody)"
-              d="M103 214 L88 190 L97 157 L128 143 L151 104 Q162 91 183 88 L237 88 Q258 91 269 104 L292 143 L323 157 L332 190 L317 214 L285 226 L135 226 Z"/>
-            <path class="car-line" d="M128 143 L154 115 Q164 102 184 100 L236 100 Q256 102 266 115 L292 143"/>
-            <path class="car-glass"
-              d="M157 136 L173 110 Q180 104 192 104 L228 104 Q240 104 247 110 L263 136 Z"/>
-            <path class="car-line" d="M210 105 L210 136"/>
-            <path class="car-line" d="M130 145 L174 151 L246 151 L290 145"/>
-            <path class="car-fill" d="M103 157 L146 151 L163 164 L143 179 L98 177 Z"/>
-            <path class="car-fill" d="M317 157 L274 151 L257 164 L277 179 L322 177 Z"/>
-            <path class="car-light" d="M108 158 L144 154 L155 163 L139 169 L104 169 Z"/>
-            <path class="car-light" d="M312 158 L276 154 L265 163 L281 169 L316 169 Z"/>
-            <path class="car-orange" d="M106 174 L137 173 L145 177 L115 181 Z"/>
-            <path class="car-orange" d="M314 174 L283 173 L275 177 L305 181 Z"/>
-            <path class="car-line" d="M97 184 L148 188 L169 198 L251 198 L272 188 L323 184"/>
-            <path class="car-fill" d="M89 177 L101 175 L108 210 L95 214 L85 198 Z"/>
-            <path class="car-fill" d="M331 177 L319 175 L312 210 L325 214 L335 198 Z"/>
-            <path class="car-line" d="M119 210 L153 218 L267 218 L301 210"/>
-            <path class="car-fill" d="M155 188 L184 183 L236 183 L265 188 L257 205 L163 205 Z"/>
-            <path class="car-line" d="M180 193 L240 193"/>
-            <path class="car-orange" d="M189 207 L231 207 L240 211 L180 211 Z"/>
-            <path class="car-line" d="M162 226 L258 226"/>
-          </svg>
-
-          <span class="garage-car-copy">
-            <span class="garage-car-number">02 / ATELIER</span>
-            <h3>Votre entretien</h3>
-            <p>Suivez les opérations réalisées et gardez un œil sur les prochaines échéances.</p>
-            <span class="garage-car-cta">Maîtriser l'entretien <span>↗</span></span>
-          </span>
-        </button>
-
-        <!-- 03 : DÉPENSES — trois quarts opposé -->
-        <button class="garage-car"
-                type="button"
-                data-car="expenses"
-                aria-pressed="false">
-          <svg class="garage-car-art" viewBox="0 0 420 280"
-               role="img" aria-label="Silhouette d'une sportive vue de trois quarts avant depuis le côté opposé">
-            <defs>
-              <linearGradient id="expensesBody" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#274968"/>
-                <stop offset=".48" stop-color="#101f31"/>
-                <stop offset="1" stop-color="#050b13"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="210" cy="235" rx="145" ry="17" fill="#02060b" opacity=".8"/>
-            <g transform="translate(420 0) scale(-1 1)">
-              <path class="car-fill" fill="url(#expensesBody)"
-                d="M47 186 L69 153 Q81 141 116 132 L158 95 Q177 79 214 83 L276 104 Q301 113 323 137 L362 158 Q374 167 369 184 L354 206 L313 219 L112 226 L61 212 Z"/>
-              <path class="car-line"
-                d="M70 155 L119 144 L169 108 Q183 97 213 101 L272 118 Q294 126 316 148 L350 169"/>
-              <path class="car-glass"
-                d="M151 132 L180 103 Q190 96 211 100 L253 113 L276 137 Z"/>
-              <path class="car-line" d="M215 101 L210 132 M151 132 L276 137"/>
-              <path class="car-line" d="M118 146 L146 155 L280 161"/>
-              <path class="car-fill" d="M47 186 L89 184 L115 198 L103 218 L61 212 Z"/>
-              <path class="car-light" d="M53 176 L83 168 L101 177 L84 185 L53 185 Z"/>
-              <path class="car-orange" d="M56 190 L79 188 L92 192 L72 196 Z"/>
-              <path class="car-fill" d="M300 153 L347 167 L358 183 L329 187 L305 173 Z"/>
-              <path class="car-light" d="M321 165 L349 175 L353 181 L331 177 Z"/>
-              <path class="car-line" d="M116 198 L132 207 L307 204 L335 190"/>
-              <path class="car-line" d="M126 219 L310 213"/>
-              <path class="car-fill" d="M92 202 L109 198 L123 210 L115 230 L90 230 L78 216 Z"/>
-              <ellipse cx="102" cy="215" rx="17" ry="22" fill="#02060b" stroke="#406987" stroke-width="2"/>
-              <ellipse cx="102" cy="215" rx="7" ry="10" fill="#152b40" stroke="#6da7d4"/>
-              <path class="car-line" d="M102 206 L102 224 M94 215 L110 215"/>
-              <path class="car-fill" d="M288 199 L309 194 L326 205 L319 222 L293 224 L281 213 Z"/>
-              <ellipse cx="305" cy="210" rx="16" ry="19" fill="#02060b" stroke="#406987" stroke-width="2"/>
-              <ellipse cx="305" cy="210" rx="7" ry="9" fill="#152b40" stroke="#6da7d4"/>
-              <path class="car-line" d="M305 202 L305 218 M298 210 L312 210"/>
-              <path class="car-line" d="M147 158 L159 181 L269 184"/>
-              <path class="car-line" d="M178 184 L203 192 L270 189"/>
-              <path class="car-orange" d="M170 190 L232 190 L245 193 L180 196 Z"/>
-            </g>
-          </svg>
-
-          <span class="garage-car-copy">
-            <span class="garage-car-number">03 / MAÎTRISE</span>
-            <h3>Vos dépenses</h3>
-            <p>Carburant et frais automobiles : comprenez ce que votre voiture vous coûte.</p>
-            <span class="garage-car-cta">Suivre les dépenses <span>↗</span></span>
-          </span>
-        </button>
-
+      <div class="garage-car garage-car--expenses" tabindex="0">
+        <div class="garage-car-image"></div>
+        <div class="garage-car-copy">
+          <span class="garage-number">03 / MAÎTRISE</span>
+          <h3>Vos dépenses</h3>
+          <p>Carburant et frais automobiles : comprenez
+             ce que votre voiture vous coûte.</p>
+          <span class="garage-link">Suivre les dépenses ↗</span>
+        </div>
       </div>
     </div>
 
-    <p class="garage-hint">Survolez une voiture ou faites défiler la scène</p>
+    <p class="garage-hint">
+      Explorez les trois piliers de votre univers automobile
+    </p>
   </div>
 </section>
     <section class="section app-section" id="application">
