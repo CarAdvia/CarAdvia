@@ -815,6 +815,56 @@
         transform: none;
       }
     }
+    /* CARADVIA — Optimisation mobile */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 88svh;
+    padding: 100px 22px 48px;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    opacity: 0.9;
+    filter: saturate(0.9) brightness(0.85) contrast(1.05);
+    object-position: 58% center;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 17, 30, 0.22) 0%,
+      rgba(8, 17, 30, 0.35) 45%,
+      rgba(8, 17, 30, 0.88) 100%
+    );
+  }
+
+  .hero-content {
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 11vw, 3.6rem);
+    line-height: 1.02;
+    max-width: 12ch;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 32ch;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  section {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
   </style>
 </head>
 
