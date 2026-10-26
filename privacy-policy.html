@@ -35,7 +35,7 @@
   <h1>Politique de confidentialité</h1>
 
 <p class="updated">
-  Dernière mise à jour : 12 septembre 2026
+  Dernière mise à jour : 26 octobre 2026
 </p>
 
 <p>
@@ -203,6 +203,50 @@
   <li>notes.</li>
 </ul>
 
+  <h3>2.8. Données de localisation</h3>
+
+<p>
+  CarAdvia propose une fonctionnalité facultative « Me localiser »
+  permettant de rechercher les stations-service à proximité de la
+  position actuelle de l'utilisateur.
+</p>
+
+<p>
+  Si l'utilisateur active cette fonctionnalité et autorise l'accès
+  à la localisation, l'application utilise les coordonnées de
+  l'appareil pour rechercher les stations-service à proximité et
+  calculer les distances routières.
+</p>
+
+<p>
+  Les coordonnées peuvent être transmises aux services externes
+  nécessaires à ces fonctionnalités, notamment au service public
+  de données sur les prix des carburants et au service de calcul
+  d'itinéraires OSRM.
+</p>
+
+<p>
+  La fonctionnalité est déclenchée par l'utilisateur. CarAdvia
+  n'utilise pas cette fonctionnalité pour suivre les déplacements
+  en arrière-plan.
+</p>
+
+<p>
+  CarAdvia n'a pas pour finalité de conserver un historique des
+  positions GPS des utilisateurs. Les coordonnées utilisées pour
+  une recherche ne sont pas destinées à être enregistrées
+  durablement par CarAdvia. Les services externes peuvent toutefois
+  appliquer leurs propres règles de traitement et de conservation,
+  notamment pour leurs journaux techniques.
+</p>
+
+<p>
+  L'utilisateur peut refuser l'autorisation de localisation et
+  utiliser la recherche par ville ou code postal lorsqu'elle est
+  disponible. L'autorisation de localisation peut également être
+  retirée dans les paramètres de l'appareil.
+</p>
+
 
 <h2>3. Données stockées localement sur l'appareil</h2>
 
@@ -331,6 +375,11 @@
     traiter les demandes de suppression de compte et les demandes
     relatives aux droits des utilisateurs.
   </li>
+  <li>
+  permettre, lorsque l'utilisateur le demande, la recherche de
+  stations-service à proximité et le calcul de distances routières
+  à partir de sa position ;
+</li>
 </ul>
 
 
@@ -412,6 +461,40 @@
   à l'envoi des messages peuvent être transmises au prestataire.
 </p>
 
+  <h3>9.3. API publique des prix des carburants</h3>
+
+<p>
+  Pour afficher les stations-service et leurs prix, CarAdvia utilise
+  l'API publique des prix des carburants en France, accessible via
+  la plateforme data.economie.gouv.fr.
+</p>
+
+<p>
+  Lorsqu'une recherche de stations est effectuée à partir de la
+  position actuelle de l'utilisateur, les coordonnées nécessaires
+  à cette recherche peuvent être transmises à cette API.
+</p>
+
+<h3>9.4. OSRM — calcul des distances routières</h3>
+
+<p>
+  CarAdvia utilise le service de calcul d'itinéraires OSRM pour
+  estimer les distances par la route entre la position de recherche
+  et les stations-service.
+</p>
+
+<p>
+  Dans ce cadre, les coordonnées du point de départ et celles des
+  stations concernées peuvent être transmises au service OSRM.
+  Ces transmissions servent au calcul des distances demandées.
+</p>
+
+<p>
+  Ces services sont distincts de l'infrastructure propre de CarAdvia.
+  Leurs pratiques de traitement et leurs durées de conservation
+  relèvent également de leurs propres politiques et conditions.
+</p>
+
 
 <h2>10. Transferts internationaux</h2>
 
@@ -454,7 +537,18 @@
 </p>
 
 
-<h2>12. Données et permissions qui ne sont pas utilisées</h2>
+<h2>12. Permissions et données qui ne sont pas utilisées</h2>
+
+<p>
+  CarAdvia utilise la localisation uniquement lorsque l'utilisateur
+  déclenche la fonctionnalité « Me localiser » et autorise l'accès
+  à la position de son appareil.
+</p>
+
+<p>
+  CarAdvia ne demande pas l'accès à la localisation en arrière-plan
+  pour suivre les déplacements de l'utilisateur.
+</p>
 
 <p>
   Dans le cadre des fonctionnalités actuellement proposées, CarAdvia
@@ -462,7 +556,6 @@
 </p>
 
 <ul>
-  <li>localisation GPS ;</li>
   <li>contacts du téléphone ;</li>
   <li>messages SMS ou MMS ;</li>
   <li>microphone ou enregistrements audio ;</li>
@@ -471,7 +564,6 @@
   <li>historique de navigation web ;</li>
   <li>caméra pour la prise ou l'importation de photos.</li>
 </ul>
-
 
 <h2>13. Analyse, publicité et données de diagnostic</h2>
 
